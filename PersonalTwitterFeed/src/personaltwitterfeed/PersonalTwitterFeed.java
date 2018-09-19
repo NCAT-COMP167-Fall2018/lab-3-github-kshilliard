@@ -22,6 +22,19 @@ public class PersonalTwitterFeed {
      */
     
     public static void main(String[] args) {
+        PersonalTwitterFeed feed = new PersonalTwitterFeed();
+        feed.newTweet();
+    }
+    
+    public static String getCurrentTimeStamp() {
+        String pattern = "KK:mm:ss a";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        String time = simpleDateFormat.format(new Date());
+        return time;
+    }
+    
+    public static void newTweet() {
         String[] tweets = new String[MAX_NUMBER_TWEETS];
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to your personal Twitter!");
@@ -41,8 +54,6 @@ public class PersonalTwitterFeed {
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
             for(int i = 0; i < numTweets; i++) {
                 System.out.println("- " + tweets[i]);
-//                String timestamp = getCurrentTimeStamp();
-//                System.out.println(timestamp);
             }
             
             System.out.println();
@@ -55,14 +66,6 @@ public class PersonalTwitterFeed {
         }
         
         System.out.println("Your twitter feed is full");
-    }
-    
-    public static String getCurrentTimeStamp() {
-        String pattern = "KK:mm:ss a";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
-        String time = simpleDateFormat.format(new Date());
-        return time;
     }
     
 }
