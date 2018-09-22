@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author CCannon
+ * @author Kevin Hilliard
  */
 public class PersonalTwitterFeed {
 
@@ -20,7 +20,21 @@ public class PersonalTwitterFeed {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
+        PersonalTwitterFeed feed = new PersonalTwitterFeed();
+        feed.newTweet();
+    }
+    
+    public static String getCurrentTimeStamp() {
+        String pattern = "KK:mm:ss a";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        String time = simpleDateFormat.format(new Date());
+        return time;
+    }
+    
+    public static void newTweet() {
         String[] tweets = new String[MAX_NUMBER_TWEETS];
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to your personal Twitter!");
@@ -28,13 +42,13 @@ public class PersonalTwitterFeed {
         
         String tweeterName = keyboard.nextLine();
         
-        System.out.println("Nice to meet you " + tweeterName + "!");
+        System.out.println("Nice to meet you, " + tweeterName + "!");
         System.out.println("Enter your tweets and I will add them to your timeline!");
         
         int numTweets = 0;
         
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
-            tweets[numTweets] = keyboard.nextLine();
+            tweets[numTweets] = keyboard.nextLine() + " " + getCurrentTimeStamp();
             numTweets++;
             
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
